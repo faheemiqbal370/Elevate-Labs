@@ -1,0 +1,196 @@
+/* 
+   RESET & BASE STYLES
+   Always reset browser defaults
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding won't break your layout */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* 
+   HEADER
+ */
+.header {
+  display: flex;               /* puts logo & nav side by side */
+  justify-content: space-between; /* logo on left, nav on right */
+  align-items: center;         /* vertically centered */
+  padding: 16px 40px;
+  background-color: #b9bbbd;   
+  position: sticky;            /* sticks to top while scrolling */
+  top: 0;
+  z-index: 100;                /* always on top of other content */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #010101;              
+  letter-spacing: 1px;
+}
+
+/* NAV LINKS */
+.nav {
+  display: flex;
+  gap: 28px;                   /* space between links */
+}
+
+.nav a {
+  text-decoration: none;
+  color: #010101;              
+  font-weight: 500;
+  transition: color 0.3s;     /* smooth color change on hover */
+}
+
+.nav a:hover {
+  color: #fdfdfd;              /* highlight on hover */
+}
+
+/* Hide hamburger on desktop */
+.menu-toggle,
+.hamburger {
+  display: none;
+}
+
+/* 
+   HERO SECTION
+ */
+.hero {
+  min-height: 90vh;            /* takes up 90% of screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #fcfdfd, #b9bbbd);
+  padding: 40px 20px;
+}
+
+.hero-content {
+  max-width: 700px;            /* content won't stretch too wide */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #0a0a0a;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: #38bdf8;              /* highlight one word */
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #343535;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* CALL-TO-ACTION BUTTON */
+.btn {
+  display: inline-block;
+  background-color: #0e0e0e;
+  color: #fefeff;
+  padding: 14px 32px;
+  border-radius: 0px;         /* pill shape */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  border: 3px solid #fbfbfb;    /* subtle border for contrast */
+}
+
+.btn:hover {
+  background-color: #cbcfd1;
+  transform: scale(1.05);      /* slight zoom on hover */
+    color: #0b0b0b;
+    border: 3px solid #0b0b0b;  /* change border color on hover */
+}
+
+/* 
+   FOOTER
+ */
+.footer {
+  background: linear-gradient(135deg, #b9bbbd, #fcfdfd);
+  color: #111212;
+  text-align: center;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-links {
+  display: flex;
+  gap: 24px;
+}
+
+.social-links a {
+  color: #040404;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #05c5f0;
+}
+
+/* 
+   MEDIA QUERIES (Responsive)
+   Target: screens smaller than 768px (tablets & mobile)
+ */
+@media (max-width: 768px) {
+
+  /* Stack header vertically */
+  .header {
+    flex-wrap: wrap;
+    padding: 16px 24px;
+  }
+
+  /* Show hamburger icon */
+  .hamburger {
+    display: block;
+    font-size: 1.8rem;
+    color: #0d0d0d;
+    cursor: pointer;
+  }
+
+  /* Hide nav by default on mobile */
+  .nav {
+    display: none;
+    flex-direction: column;    /* stack links vertically */
+    width: 100%;
+    gap: 16px;
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  /* Show nav when checkbox is checked (pure CSS toggle) */
+  .menu-toggle:checked + .hamburger + .nav {
+    display: flex;
+  }
+
+  /* Smaller hero text on mobile */
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* Stack footer links */
+  .social-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
