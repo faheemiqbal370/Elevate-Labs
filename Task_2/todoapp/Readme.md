@@ -33,14 +33,6 @@ todo-app/
 
 ---
 
-##  How to Run
-
-1. Open folder in VS Code
-2. Right-click `index.html`
-3. Select **"Open with Live Server"**
-
----
-
 ##  Concepts Practiced
 
 - DOM manipulation
