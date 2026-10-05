@@ -1,0 +1,25 @@
+# Node.js
+
+node_modules/
+
+# Environment Variables 
+.env
+.env.local
+.env.production
+
+# Logs 
+logs/
+*.log
+npm-debug.log*
+
+# OS Generated Files
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code Settings
+.vscode/
+
+# Optional: npm
+# 
+package-lock.json   
