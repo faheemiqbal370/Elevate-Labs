@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPA / CGPA Converter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!--  HEADER  -->
+        <header class="header">
+            <div class="header-inner">
+                <h1 class="logo">GPA Converter</h1>
+                <p class="tagline">Universal GPA & CGPA Scale Converter</p>
+            </div>
+        </header>
+
+        <!--  MAIN CARD  -->
+        <main class="main">
+            <div class="converter-card">
+
+                <!-- TITLE -->
+                <div class="card-header">
+                    <h2>Convert Your Grade</h2>
+                    <p>Enter your GPA/CGPA and select your scales below</p>
+                </div>
+                
+
+                <!-- INPUT SECTION -->
+                <div class="input-section">
+                    <label class="input-label" for="gpa-input">
+                        Your GPA / CGPA
+                    </label>
+                    <input type="number" id="gpa-input" class="gpa-input" placeholder="e.g. 8.5" min="0" step="0.01" />
+                </div>
+
+                <!-- SCALE SELECTORS -->
+                <div class="scale-section">
+
+                    <!-- FROM SCALE -->
+                    <div class="scale-group">
+                        <label class="input-label" for="from-scale">From Scale</label>
+                        <select id="from-scale" class="scale-select">
+                            <option value="">Select Scale</option>
+                            <option value="4.0">4.0 &nbsp;— USA Standard</option>
+                            <option value="4.33">4.33 — USA Weighted</option>
+                            <option value="5.0">5.0 &nbsp;— Pakistan / Other</option>
+                            <option value="7.0">7.0 &nbsp;— Some Universities</option>
+                            <option value="10.0">10.0 — India / Bangladesh</option>
+                        </select>
+                    </div>
+
+                    <!-- SWAP BUTTON -->
+                    <button class="swap-btn" id="swap-btn" title="Swap Scales">
+                        ⇄
+                    </button>
+
+                    <!-- TO SCALE -->
+                    <div class="scale-group">
+                        <label class="input-label" for="to-scale">To Scale</label>
+                        <select id="to-scale" class="scale-select">
+                            <option value="">Select Scale</option>
+                            <option value="4.0">4.0 &nbsp;— USA Standard</option>
+                            <option value="4.33">4.33 — USA Weighted</option>
+                            <option value="5.0">5.0 &nbsp;— Pakistan / Other</option>
+                            <option value="7.0">7.0 &nbsp;— Some Universities</option>
+                            <option value="10.0">10.0 — India / Bangladesh</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- ERROR MESSAGE -->
+                <div class="error-box" id="error-box">
+                    <span id="error-text"></span>
+                </div>
+
+                <!-- CONVERT BUTTON -->
+                <button class="convert-btn" id="convert-btn">
+                    Convert →
+                </button>
+
+                <!--  RESULT SECTION (hidden until converted)  -->
+                <div class="result-section" id="result-section">
+
+                    <div class="result-divider">
+                        <span>Result</span>
+                    </div>
+
+                    <!-- RESULT CARDS -->
+                    <div class="result-grid">
+
+                        <div class="result-item">
+                            <span class="result-label">Your Input</span>
+                            <span class="result-value" id="result-input">—</span>
+                        </div>
+
+                        <div class="result-item highlight">
+                            <span class="result-label">Converted</span>
+                            <span class="result-value big" id="result-output">—</span>
+                        </div>
+
+                    </div>
+
+                    <!-- FORMULA BOX -->
+                    <div class="formula-box">
+                        <span class="formula-label">Formula Used</span>
+                        <span class="formula-text" id="formula-text">—</span>
+                    </div>
+
+                    <!-- DISCLAIMER -->
+                    <div class="disclaimer">
+                        ⚠️ This is a mathematical estimate using a universal formula.
+                        Results may not be officially accepted by all institutions.
+                        Always verify with your target university.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--  INFO SECTION  -->
+            <div class="info-card">
+                <h3>The Universal Formula</h3>
+                <div class="formula-display">
+                    Converted GPA = (Original GPA ÷ Original Max) × Target Max
+                </div>
+
+                <h3 style="margin-top: 24px;"> Supported Scales</h3>
+                <div class="scales-grid">
+                    <div class="scale-item">
+                        <span class="scale-num">4.0</span>
+                        <span class="scale-desc">USA Standard</span>
+                    </div>
+                    <div class="scale-item">
+                        <span class="scale-num">4.33</span>
+                        <span class="scale-desc">USA Weighted</span>
+                    </div>
+                    <div class="scale-item">
+                        <span class="scale-num">5.0</span>
+                        <span class="scale-desc">Pakistan / Other</span>
+                    </div>
+                    <div class="scale-item">
+                        <span class="scale-num">7.0</span>
+                        <span class="scale-desc">Some Universities</span>
+                    </div>
+                    <div class="scale-item">
+                        <span class="scale-num">10.0</span>
+                        <span class="scale-desc">India / Bangladesh</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!--  FOOTER  -->
+        <footer class="footer">
+            <p>GPA Converter &copy; 2026 — Mathematical estimates only.</p>
+            <p>Always verify results with your institution.</p>
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

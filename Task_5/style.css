@@ -1,0 +1,539 @@
+/* 
+   ROOT VARIABLES
+   Central color system — change once,
+   updates everywhere
+ */
+:root {
+  --bg:           #0d0a07;   /* near black background     */
+  --surface:      #302d2b;   /* slightly lighter surface  */
+  --card:         #faf9f8;   /* card background           */
+  --border:       #c2b8b2;   /* dark brown border         */
+  --accent:       #8b5e3c;   /* warm brown accent         */
+  --accent-light: #c49a6c;   /* lighter brown highlight   */
+  /* --text:         #ddcfc1;   warm white text           */
+  /* --muted:        #a89880;   muted warm gray           */
+  --error:        #c0392b;   /* error red                 */
+  --error-bg:     #2a0e0a;   /* error background          */
+  --success:      #c49a6c;   /* success color (brown)     */
+}
+
+
+/* 
+   RESET & BASE
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+   BODY — Replace background
+   color with the image
+*/
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background-image: url('https://images.unsplash.com/photo-1583373834259-46cc92173cb7?w=1200&fit=crop');
+  background-size: cover;       
+  background-position: center;  
+  background-attachment: scroll;
+
+  background-color: rgba(106, 99, 99, 0.85);
+  background-blend-mode: overlay;
+}
+
+/* 
+   PAGE WRAPPER
+ */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+/* 
+   HEADER
+ */
+.header {
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 15px 15px;
+  text-align: center;
+  position: fixed;        /* fixes it to the top */
+  top: 0;                 /* sticks to very top */
+  left: 0;                /* spans full width */
+  width: 100%;            /* full width */
+  z-index: 999; 
+}      
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  margin-bottom: 6px;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color:aliceblue;
+  font-weight: 400;
+}
+
+/* 
+   MAIN LAYOUT
+ */
+.main {
+  flex: 1;
+  width: 90%;
+  max-width: 680px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 
+   CONVERTER CARD
+ */
+.converter-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 36px;
+}
+
+.card-header {
+  margin-bottom: 28px;
+}
+
+.card-header h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #38409e;
+  margin-bottom: 6px;
+}
+
+.card-header p {
+  font-size: 0.88rem;
+  color: #0d0a07
+}
+
+/* 
+   INPUT LABEL
+ */
+.input-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #131313;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+/* 
+   GPA INPUT
+ */
+.input-section {
+  margin-bottom: 24px;
+}
+
+.gpa-input {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: #f9f7f7;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.gpa-input:focus {
+  border-color: var(--accent);
+}
+
+/* Remove number input arrows */
+.gpa-input::-webkit-outer-spin-button,
+.gpa-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* 
+   SCALE SECTION
+   From / Swap / To layout
+ */
+.scale-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.scale-group {
+  flex: 1;
+}
+
+.scale-select {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: #f4f1f1;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  /* Style the dropdown arrow */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a89880' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.scale-select:focus {
+  border-color: var(--accent);
+}
+
+/* Dropdown options */
+.scale-select option {
+  background-color: #1d1d1d;
+  color: var(--text);
+  border-radius: 15px;
+}
+
+/* 
+   SWAP BUTTON
+ */
+.swap-btn {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--accent-light);
+  border-radius: 60px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap-btn:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--text);
+  transform: rotate(180deg);
+}
+
+/* 
+   ERROR BOX
+ */
+.error-box {
+  display: none;              /* hidden by default */
+  background-color: var(--error-bg);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: #e74c3c;
+}
+
+.error-box.show {
+  display: block;
+}
+
+/* 
+   CONVERT BUTTON
+ */
+.convert-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.convert-btn:hover {
+  background-color: var(--accent-light);
+  color: var(--bg);
+  transform: scale(1.01);
+}
+
+/* 
+   RESULT SECTION
+ */
+.result-section {
+  display: none;              /* shown by JS after conversion */
+  margin-top: 28px;
+}
+
+.result-section.show {
+  display: block;
+}
+
+/* DIVIDER WITH TEXT */
+.result-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.result-divider::before,
+.result-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
+.result-divider span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* RESULT GRID — Two boxes side by side */
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+/* Highlighted result box */
+.result-item.highlight {
+  border-color: var(--accent);
+  background-color: #2a1a0d;
+}
+
+.result-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.result-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Big number for converted result */
+.result-value.big {
+  font-size: 2rem;
+  color: var(--accent-light);
+}
+
+/* 
+   FORMULA BOX
+ */
+.formula-box {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formula-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.formula-text {
+  font-size: 0.95rem;
+  color: var(--accent-light);
+  font-weight: 500;
+  font-family: 'Courier New', monospace;  /* monospace for math */
+}
+
+/* 
+   DISCLAIMER
+ */
+.disclaimer {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 14px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* 
+   INFO CARD (Formula + Scales)
+ */
+.info-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+}
+
+.info-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #271807;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Formula display box */
+.formula-display {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color:#c49a6c;
+  line-height: 1.5;
+}
+
+/* Scales grid — 5 scale boxes */
+.scales-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.scale-item {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+   color:#c49a6c;
+}
+
+.scale-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.scale-desc {
+  font-size: 0.68rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* 
+   FOOTER
+ */
+.footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: #ebeae9;
+  font-size: 0.8rem;
+  padding: 28px 20px;          /* proper padding */
+  width: 100%;                 /* full width */
+  line-height: 1.7;
+}
+
+
+/* 
+   MEDIA QUERIES
+ */
+@media (max-width: 600px) {
+
+  .converter-card,
+  .info-card {
+    padding: 24px 18px;
+  }
+
+  /* Stack swap button with selects */
+  .scale-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .swap-btn {
+    width: 100%;
+    height: 40px;
+    transform: rotate(90deg); /* vertical arrow on mobile */
+  }
+
+  .swap-btn:hover {
+    transform: rotate(270deg);
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;  /* stack result boxes */
+  }
+
+  /* Scales grid → 2 or 3 per row on mobile */
+  .scales-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .result-value.big {
+    font-size: 1.6rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .header {
+    padding: 16px 20px;   /* smaller padding on mobile */
+  }
+
+  /* Adjust push down for smaller header height */
+  .page-wrapper {
+    padding-top: 75px;
+  }
+
+}
